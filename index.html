@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Automélia conçoit des sites web et des outils d'automatisation sur mesure, avec l'intelligence artificielle en renfort.">
-<title>Automélia</title>
+<meta name="description" content="Atelier Ventre conçoit des sites web et des outils d'automatisation sur mesure, avec l'intelligence artificielle en renfort.">
+<title>Atelier Ventre</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
@@ -299,7 +299,7 @@ footer { border-top: 1px solid var(--line); padding-block: 28px 40px; color: var
 <body>
 <header class="top">
   <div class="wrap">
-    <a class="brand" href="#accueil"><span class="mark" aria-hidden="true"><span></span><span></span><span></span><span></span></span>Automélia</a>
+    <a class="brand" href="#accueil"><span class="mark" aria-hidden="true"><span></span><span></span><span></span><span></span></span>Atelier Ventre</a>
     <div class="right">
       <a class="phone" href="tel:+33640974755" aria-label="Appeler le 06 40 97 47 55"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><span>06 40 97 47 55</span></a>
       <button class="theme" type="button" id="theme" aria-label="Passer en mode sombre">
@@ -315,7 +315,7 @@ footer { border-top: 1px solid var(--line); padding-block: 28px 40px; color: var
 <main class="wrap view" id="accueil">
   <section class="hero">
     <div>
-      <p class="eyebrow">Automélia · solutions sur mesure pour les entreprises</p>
+      <p class="eyebrow">Atelier Ventre · solutions sur mesure pour les entreprises</p>
       <h1 class="pillars"><a href="#services">Sites web<span>.</span></a><a href="#services">Automatisation<span>.</span></a><a href="#services">Intelligence artificielle<span>.</span></a></h1>
       <p class="lead">Je conçois des sites web et des outils qui font le travail répétitif à votre place, avec l'intelligence artificielle en renfort. Moins de ressaisie, plus de temps pour votre métier.</p>
       <div class="actions">
@@ -458,7 +458,7 @@ footer { border-top: 1px solid var(--line); padding-block: 28px 40px; color: var
         <h2>Parlons de votre projet</h2>
         <p>Décrivez votre besoin en quelques lignes. Je vous réponds sous 24 heures avec une première piste et, si cela vous convient, un devis gratuit.</p>
         <div class="coords">
-          <div class="mail"><span class="c-label">E-mail</span><span id="mail">contact@automelia.fr</span><button type="button" data-copy="mail">Copier</button></div>
+          <div class="mail"><span class="c-label">E-mail</span><span id="mail">contact@atelierventre.fr</span><button type="button" data-copy="mail">Copier</button></div>
           <div class="mail"><span class="c-label">Téléphone</span><a id="tel" href="tel:+33640974755">06 40 97 47 55</a><button type="button" data-copy="tel">Copier</button></div>
         </div>
       </div>
@@ -613,7 +613,7 @@ footer { border-top: 1px solid var(--line); padding-block: 28px 40px; color: var
 
 <div class="wrap">
   <footer>
-    <span>© 2026 Automélia</span>
+    <span>© 2026 Atelier Ventre</span>
     <span>Sites web et outils d'automatisation sur mesure</span>
   </footer>
 </div>
@@ -660,11 +660,11 @@ footer { border-top: 1px solid var(--line); padding-block: 28px 40px; color: var
     root.classList.toggle('is-dark', d);
     btn.setAttribute('aria-label', d ? 'Passer en mode clair' : 'Passer en mode sombre');
   }
-  try { var saved = localStorage.getItem('automelia-theme'); if (saved) root.setAttribute('data-theme', saved); } catch (e) {}
+  try { var saved = localStorage.getItem('atelierventre-theme'); if (saved) root.setAttribute('data-theme', saved); } catch (e) {}
   btn.addEventListener('click', function () {
     var next = isDark() ? 'light' : 'dark';
     root.setAttribute('data-theme', next);
-    try { localStorage.setItem('automelia-theme', next); } catch (e) {}
+    try { localStorage.setItem('atelierventre-theme', next); } catch (e) {}
     sync();
   });
   if (mq.addEventListener) mq.addEventListener('change', sync);
