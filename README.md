@@ -12,6 +12,6 @@ Ouvrir `index.html` dans un navigateur.
 
 ## Reste à faire avant la mise en ligne
 
-- Relier le formulaire de contact à une messagerie (il affiche pour l'instant un message de maquette).
-- Réserver le nom de domaine atelier-ventre.fr et créer l'adresse `contact@atelier-ventre.fr`.
+- Formulaire de contact : envoyé par FormSubmit (formsubmit.co) vers ghislain.ventre@gmail.com ; le premier envoi déclenche un e-mail d'activation à confirmer. Ensuite, remplacer l'adresse dans l'URL par l'alias aléatoire fourni par FormSubmit.
+- Réserver le nom de domaine atelier-ventre.fr, créer l'adresse `contact@atelier-ventre.fr` et la remettre dans le site à la place de l'adresse Gmail.
 - Remplacer les aperçus dessinés des réalisations par de vraies captures d'écran si souhaité.

@@ -298,6 +298,7 @@ label { display: grid; gap: 6px; font-size: 14px; font-weight: 500; }
 input, select, textarea { font: 400 16px var(--f-body); color: var(--fg); background: var(--bg); border: 1px solid var(--line); border-radius: 6px; padding: 10px 12px; width: 100%; }
 input:focus, select:focus, textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
 textarea { min-height: 120px; resize: vertical; }
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
 .sent { font-size: 14px; color: var(--accent-strong); background: var(--accent-soft); padding: 10px 12px; border-radius: 6px; }
 
 footer { border-top: 1px solid var(--line); padding-block: 28px 40px; color: var(--muted); font-size: 14px; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
@@ -477,7 +478,7 @@ footer { border-top: 1px solid var(--line); padding-block: 28px 40px; color: var
         <h2>Racontez-moi ce qui vous fait perdre du temps</h2>
         <p>Quelques lignes suffisent. Je lis chaque message moi-même et je vous réponds sous 24 heures avec une première piste et, si cela vous convient, un devis gratuit.</p>
         <div class="coords">
-          <div class="mail"><span class="c-label">E-mail</span><span id="mail">contact@atelier-ventre.fr</span><button type="button" data-copy="mail">Copier</button></div>
+          <div class="mail"><span class="c-label">E-mail</span><span id="mail">ghislain.ventre@gmail.com</span><button type="button" data-copy="mail">Copier</button></div>
           <div class="mail"><span class="c-label">Téléphone</span><a id="tel" href="tel:+33640974755">06 40 97 47 55</a><button type="button" data-copy="tel">Copier</button></div>
         </div>
         <figure class="map">
@@ -512,8 +513,9 @@ footer { border-top: 1px solid var(--line); padding-block: 28px 40px; color: var
           </select>
         </label>
         <label for="message">Message<textarea id="message" name="message" placeholder="Par exemple : je passe deux heures par semaine à recopier des factures dans Excel." required></textarea></label>
+        <input class="hp" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
         <div><button class="btn" type="submit">Envoyer mon message</button></div>
-        <p class="sent" id="sent" hidden>Ceci est une maquette : le formulaire sera relié à votre messagerie sur le vrai site.</p>
+        <p class="sent" id="sent" role="status" hidden></p>
       </form>
     </div>
   </section>
@@ -707,7 +709,30 @@ footer { border-top: 1px solid var(--line); padding-block: 28px 40px; color: var
 })();
 document.getElementById('form').addEventListener('submit', function (e) {
   e.preventDefault();
-  document.getElementById('sent').hidden = false;
+  var form = e.target, btn = form.querySelector('button[type="submit"]'), sent = document.getElementById('sent');
+  var data = {};
+  new FormData(form).forEach(function (v, k) { data[k] = v; });
+  if (data._honey) return;
+  data._subject = 'Site Atelier Ventre : message de ' + data.nom;
+  data._replyto = data.email;
+  data._template = 'table';
+  btn.disabled = true;
+  btn.textContent = 'Envoi en cours…';
+  fetch('https://formsubmit.co/ajax/ghislain.ventre@gmail.com', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+    body: JSON.stringify(data)
+  }).then(function (r) { return r.json().then(function (j) { if (!r.ok || String(j.success) !== 'true') throw new Error(); }); })
+    .then(function () {
+      sent.textContent = 'Merci, votre message est bien parti. Je vous réponds sous 24 heures.';
+      sent.hidden = false;
+      form.reset();
+    })
+    .catch(function () {
+      sent.textContent = "Le message n'a pas pu partir. Écrivez-moi à ghislain.ventre@gmail.com ou appelez le 06 40 97 47 55.";
+      sent.hidden = false;
+    })
+    .then(function () { btn.disabled = false; btn.textContent = 'Envoyer mon message'; });
 });
 document.querySelectorAll('[data-copy]').forEach(function (btn) {
   btn.addEventListener('click', function () {
