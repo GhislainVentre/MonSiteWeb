@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
-/* Layout: une seule page claire et chaleureuse, section « Qui est derrière l'atelier », bouton clair/sombre dans le menu, bleu ardoise et cuivre du logo Atelier Ventre, avant/après chiffré en ouverture */
+/* Layout: une seule page claire et chaleureuse, bouton clair/sombre dans le menu, bleu ardoise et cuivre du logo Atelier Ventre, avant/après chiffré en ouverture */
 :root {
   --bg: #F4F1EC;
   --surface: #FFFFFF;
@@ -268,19 +268,12 @@ a.case:hover .more span { margin-left: 4px; }
 .w-btn.pulse { animation: btnpulse 1.2s ease-in-out infinite; }
 @keyframes btnpulse { 50% { box-shadow: 0 0 0 4px var(--accent-soft); } }
 
-/* Section « Qui est derrière l'atelier » */
-.about { display: grid; grid-template-columns: auto 1fr; gap: 48px; align-items: center; }
-.about > * { min-width: 0; }
-.monogram { position: relative; width: clamp(140px, 18vw, 190px); aspect-ratio: 1; border-radius: 50%; display: grid; place-items: center; background: radial-gradient(circle at 30% 25%, var(--surface), var(--accent-soft)); border: 3px solid var(--copper); color: var(--brand); font-family: var(--f-display); font-weight: 700; font-size: clamp(44px, 6vw, 62px); letter-spacing: .02em; box-shadow: 0 20px 44px -26px rgba(31, 58, 77, .45); }
-.monogram::after { content: ""; position: absolute; inset: -12px; border-radius: 50%; border: 1px dashed color-mix(in srgb, var(--copper) 55%, transparent); }
-.about h2 { font-size: clamp(24px, 3.2vw, 34px); }
-.about .story { margin-top: 16px; display: grid; gap: 12px; max-width: 40em; font-size: 18px; }
-.promises { list-style: none; margin: 28px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+/* Engagements */
+.promises { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
 .promises li { min-width: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 16px 18px; display: grid; gap: 4px; }
 .promises b { font-family: var(--f-display); font-size: 16px; }
 .promises span { color: var(--muted); font-size: 15px; }
 @media (max-width: 760px) {
-  .about { grid-template-columns: 1fr; gap: 28px; }
   .promises { grid-template-columns: 1fr; }
 }
 
@@ -352,10 +345,10 @@ footer { border-top: 1px solid var(--line); padding-block: 28px 40px; color: var
     <div>
       <p class="eyebrow">Atelier Ventre · ingénierie et automatisation pour les TPE, autour de Brive</p>
       <h1 class="pillars"><a href="#services">Sites web<span>.</span></a><a href="#services">Automatisation<span>.</span></a><a href="#services">Intelligence artificielle<span>.</span></a></h1>
-      <p class="lead">Ingénieur installé en Corrèze, je conçois des sites web et des outils qui font le travail répétitif à votre place, avec l'intelligence artificielle en renfort. Vous parlez directement avec la personne qui fabrique votre outil, du premier appel jusqu'après la livraison.</p>
+      <p class="lead">Je m'appelle Ghislain Ventre, ingénieur installé en Corrèze. J'ai créé l'Atelier Ventre pour les artisans : je conçois des sites web et des outils qui font le travail répétitif à votre place, avec l'intelligence artificielle en renfort. Du sur-mesure, sans jargon, et un seul interlocuteur : la personne qui fabrique votre outil, du premier appel jusqu'après la livraison.</p>
       <div class="actions">
         <a class="btn" href="#contact">Parler de votre projet</a>
-        <a class="btn ghost" href="#atelier">Faire connaissance</a>
+        <a class="btn ghost" href="#realisations">Voir les réalisations</a>
       </div>
     </div>
 
@@ -381,22 +374,11 @@ footer { border-top: 1px solid var(--line); padding-block: 28px 40px; color: var
   </section>
 
   <section class="block" id="atelier">
-    <div class="about">
-      <div class="monogram" aria-hidden="true">GV</div>
-      <div>
-        <p class="eyebrow">Qui est derrière l'atelier</p>
-        <h2>Un atelier, une personne : moi.</h2>
-        <div class="story">
-          <p>Je m'appelle Ghislain Ventre. Je suis ingénieur, et ce qui me plaît le plus dans mon métier, c'est de mener un projet de bout en bout : comprendre ce qui vous fait perdre du temps, construire l'outil qui s'en charge, puis vous voir ne plus y penser.</p>
-          <p>J'ai créé l'Atelier Ventre pour les artisans : du sur-mesure, sans jargon, avec des gens que je connais par leur prénom.</p>
-        </div>
-        <ul class="promises">
-          <li><b>C'est moi qui réponds</b><span>Au téléphone comme par e-mail, pas de standard ni de sous-traitant.</span></li>
-          <li><b>Des explications simples</b><span>Je vous montre ce que fait l'outil avec vos propres fichiers.</span></li>
-          <li><b>Toujours là après</b><span>Une question, un ajustement : vous savez qui appeler.</span></li>
-        </ul>
-      </div>
-    </div>
+    <ul class="promises">
+      <li><b>C'est moi qui réponds</b><span>Au téléphone comme par e-mail, pas de standard ni de sous-traitant.</span></li>
+      <li><b>Des explications simples</b><span>Je vous montre ce que fait l'outil avec vos propres fichiers.</span></li>
+      <li><b>Toujours là après</b><span>Une question, un ajustement : vous savez qui appeler.</span></li>
+    </ul>
   </section>
 
   <section class="block band" id="services">
